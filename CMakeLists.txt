@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0.2)
 
 project(fancontroller)
 
-set(QT_MIN_VERSION "5.8.0")
+set(QT_MIN_VERSION "6.0.0")
 
 
 #options
@@ -37,7 +37,7 @@ cmake_policy(SET CMP0063 NEW)
 
 
 #Find ECM
-find_package(ECM 5.38 REQUIRED)
+find_package(ECM 6.5 REQUIRED)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 #includes
@@ -49,10 +49,10 @@ include(FindPkgConfig)
 include(ECMQMLModules)
 
 #Find Qt5
-find_package(Qt5Core ${QT_MIN_VERSION} REQUIRED)
+find_package(Qt6Core ${QT_MIN_VERSION} REQUIRED)
 
 #Find KF5
-find_package(KF5 COMPONENTS I18n REQUIRED)
+find_package(KF6 COMPONENTS I18n REQUIRED)
 
 #Find QML modules
 ecm_find_qmlmodule(QtQuick 2.6)

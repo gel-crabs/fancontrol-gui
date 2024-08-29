@@ -22,12 +22,12 @@ set(QML_FILES qml/qmldir
               qml/colors.js
               qml/math.js)
 
-set(LIB_PRIVATE_LIBRARIES Qt5::Qml
-                          KF5::Auth
-                          KF5::ConfigCore
-                          KF5::I18n)
+set(LIB_PRIVATE_LIBRARIES Qt6::Qml
+                          KF6Auth
+                          KF6ConfigCore
+                          KF6I18n)
 
-set(LIB_PUBLIC_LIBRARIES Qt5::Core)
+set(LIB_PUBLIC_LIBRARIES Qt6::Core)
 
 if(NOT NO_SYSTEMD)
 
@@ -35,17 +35,17 @@ if(NOT NO_SYSTEMD)
                  src/systemdcommunicator.cpp)
 
     set(LIB_PRIVATE_LIBRARIES ${LIB_PRIVATE_LIBRARIES}
-                              Qt5::DBus)
+                              Qt6::DBus)
 
-    find_package(Qt5DBus REQUIRED)
-    include_directories(${Qt5DBus_INCLUDE_DIRS})
+    find_package(Qt6DBus REQUIRED)
+    include_directories(${Qt6DBus_INCLUDE_DIRS})
 
 endif(NOT NO_SYSTEMD)
 
-find_package(Qt5Qml REQUIRED)
-find_package(KF5 COMPONENTS Auth Config REQUIRED)
+find_package(Qt6Qml REQUIRED)
+find_package(KF6 COMPONENTS Auth Config REQUIRED)
 
-include_directories(${Qt5Qml_INCLUDE_DIRS})
+include_directories(${Qt6Qml_INCLUDE_DIRS})
 
 add_library(fancontrol_qml_plugin SHARED ${LIB_SRCS})
 target_link_libraries(fancontrol_qml_plugin PRIVATE ${LIB_PRIVATE_LIBRARIES} PUBLIC ${LIB_PUBLIC_LIBRARIES})

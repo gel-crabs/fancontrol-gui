@@ -1,21 +1,21 @@
 set(Fancontrol_GUI_SRCS src/main.cpp
                         src/systemtrayicon.cpp)
 
-set(LIBRARIES Qt5::Gui
-              Qt5::Widgets
-              KF5::CoreAddons
-              KF5::DBusAddons
-              KF5::Declarative
-              KF5::I18n
-              KF5::ConfigGui
-              KF5::ConfigCore
-              KF5::Notifications)
+set(LIBRARIES Qt6::Gui
+              Qt6::Widgets
+              KF6::CoreAddons
+              KF6::DBusAddons
+              KF6Declarative
+              KF6::I18n
+              KF6::ConfigGui
+              KF6::ConfigCore
+              KF6::Notifications)
 
-find_package(Qt5 COMPONENTS Gui Widgets REQUIRED)
-find_package(KF5 COMPONENTS CoreAddons DBusAddons Package Declarative Config Notifications REQUIRED)
+find_package(Qt6 COMPONENTS Gui Widgets REQUIRED)
+find_package(KF6 COMPONENTS CoreAddons DBusAddons Package Declarative Config Notifications REQUIRED)
 
-include_directories(${Qt5Widgets_INCLUDE_DIRS})
-add_definitions(${Qt5Widgets_DEFINITIONS})
+include_directories(${Qt6Widgets_INCLUDE_DIRS})
+add_definitions(${Qt6Widgets_DEFINITIONS})
 
 add_executable(fancontrol_gui ${Fancontrol_GUI_SRCS})
 target_link_libraries(fancontrol_gui ${LIBRARIES})
